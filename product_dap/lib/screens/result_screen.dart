@@ -41,34 +41,35 @@ class ResultScreen extends StatelessWidget {
       body: Center(
         child: Column(
           children: [
-            const Text("Nombre - Descripción - Precio"),
+const Text("Más caro"),
 
-            const SizedBox(height: 20),
+if (caro != null)
+  Center(
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Text("Nombre: ${caro.name}"),
+        Text("Descripción: ${caro.description}"),
+        Text("Precio: ${caro.price}"),
+      ],
+    ),
+  ),
 
-            const Text("Más caro"),
+const SizedBox(height: 20),
 
-            if (caro != null)
-              Column(
-                children: [
-                  Text("Nombre: ${caro.name}"),
-                  Text("Descripción: ${caro.description}"),
-                  Text("Precio: ${caro.price}"),
-                ],
-              ),
+const Text("Más barato"),
 
-            const SizedBox(height: 20),
-
-            const Text("Más barato"),
-
-            if (barato != null)
-            Center(child: Row(
-                children: [
-                  Text("Nombre: ${barato.name} "),
-                  Text("Descripción: ${barato.description} "),
-                  Text("Precio: ${barato.price} "),
-                ],
-              ),
-            ),
+if (barato != null)
+  Center(
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Text("Nombre: ${barato.name}"),
+        Text("Descripción: ${barato.description}"),
+        Text("Precio: ${barato.price}"),
+      ],
+    ),
+  ),
             const SizedBox(height: 30),
 
             Text("Promedio: $promedio"),

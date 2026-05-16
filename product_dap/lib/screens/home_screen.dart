@@ -43,60 +43,69 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text("Carga de productos")),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
+      body: Padding(
+  padding: const EdgeInsets.all(16),
+  child: Column(
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: [
 
-            TextField(
-              controller: nameController,
-              decoration: const InputDecoration(
-                hintText: 'Nombre producto',
-                border: OutlineInputBorder(),
-              ),
-            ),
+      const Text(
+        "Agregar Producto",
+        style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+      ),
 
-            const SizedBox(height: 10),
+      const SizedBox(height: 20),
 
-            TextField(
-              controller: descController,
-              decoration: const InputDecoration(
-                hintText: 'Descripción',
-                border: OutlineInputBorder(),
-              ),
-            ),
-
-            const SizedBox(height: 10),
-
-            TextField(
-              controller: priceController,
-              keyboardType: TextInputType.number,
-              decoration: const InputDecoration(
-                hintText: 'Precio',
-                border: OutlineInputBorder(),
-              ),
-            ),
-
-            const SizedBox(height: 10),
-
-            ElevatedButton(
-              onPressed: agregarProducto,
-              child: const Text('Agregar'),
-            ),
-
-            ElevatedButton(
-              onPressed: () {
-                context.push('/result', extra: products);
-              },
-              child: const Text('Calcular'),
-            ),
-
-            const SizedBox(height: 20),
-
-          ],
+      TextField(
+        controller: nameController,
+        decoration: const InputDecoration(
+          labelText: 'Nombre',
+          border: OutlineInputBorder(),
         ),
       ),
+
+      const SizedBox(height: 10),
+
+      TextField(
+        controller: descController,
+        decoration: const InputDecoration(
+          labelText: 'Descripción',
+          border: OutlineInputBorder(),
+        ),
+      ),
+
+      const SizedBox(height: 10),
+
+      TextField(
+        controller: priceController,
+        keyboardType: TextInputType.number,
+        decoration: const InputDecoration(
+          labelText: 'Precio',
+          border: OutlineInputBorder(),
+        ),
+      ),
+
+      const SizedBox(height: 20),
+
+      Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          ElevatedButton(
+            onPressed: agregarProducto,
+            child: const Text('Agregar'),
+          ),
+          const SizedBox(width: 10),
+          ElevatedButton(
+            onPressed: () {
+              context.push('/result', extra: products);
+            },
+            child: const Text('Calcular'),
+          ),
+        ],
+      ),
+    ],
+  ),
+),
     );
   }
 }
-
