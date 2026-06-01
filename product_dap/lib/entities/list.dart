@@ -1,11 +1,4 @@
-import '../entities/product.dart';
-
-class Usuario {
-  String username;
-  String password;
-
-  Usuario(this.username, this.password);
-}
+import 'product.dart';
 
 List<Usuario> usuarios = [
   Usuario("admin", "1234"),
@@ -30,7 +23,4 @@ bool login(String user, String pass) {
 
 void agregarProducto(Product p) {
   productos.add(p);
-}
-void ordenarProductos() {
-  productos.sort((a, b) => b.price.compareTo(a.price));
 }

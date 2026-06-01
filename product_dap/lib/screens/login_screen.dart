@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import '../data/list.dart';
+import '../entities/list.dart';
 
 class LoginScreen extends StatelessWidget {
   LoginScreen({super.key});
-
+bool login(String user, String pass) {
+  return usuarios.any(
+    (u) => u.username == user && u.password == pass,
+  );
+}
   final userController = TextEditingController();
   final passController = TextEditingController();
 
@@ -12,7 +16,11 @@ class LoginScreen extends StatelessWidget {
     if (login(userController.text, passController.text)) {
       context.go('/home');
     } else {
-      print("Usuario incorrecto");
+ScaffoldMessenger.of(context).showSnackBar(
+  const SnackBar(
+    content: Text("Usuario incorrecto"),
+  ),
+);
     }
   }
 

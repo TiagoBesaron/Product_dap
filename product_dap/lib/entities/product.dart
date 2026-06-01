@@ -9,4 +9,10 @@ class Product {
     required this.price,
   });
 }
+class Usuario {
+  String username;
+  String password;
+
+  Usuario(this.username, this.password);
+}
 

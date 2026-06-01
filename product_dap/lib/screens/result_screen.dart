@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import '../data/list.dart';
+import '../entities/list.dart';
 
 class ResultScreen extends StatelessWidget {
   const ResultScreen({super.key});
@@ -12,7 +12,9 @@ class ResultScreen extends StatelessWidget {
         body: Center(child: Text("No hay productos")),
       );
     }
-
+  void ordenarProductos() {
+  productos.sort((a, b) => b.price.compareTo(a.price));
+  }
     ordenarProductos();
 
     final caro = productos.reduce((a, b) => a.price > b.price ? a : b);

@@ -1,13 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../entities/product.dart';
-import '../data/list.dart';
+import '../entities/list.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
+  void agregarProducto(Product p) {
+  agregarProducto(p);
+}
+
+void ordenarProductos() {
+  ordenarProductos();
+}
 }
 
 class _HomeScreenState extends State<HomeScreen> {
